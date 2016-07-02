@@ -1,27 +1,25 @@
-//: Playground - noun: a place where people can play
-
 import UIKit
 
 //: # Distance class
 //:
 
-class Distance {
+struct Distance {
     static let kmPerMile = 1.60934
     
     var miles:Double
     var km:Double {
         get {
-            return Distance.toKm(miles)
+            return Distance.toKm(miles: miles)
         }
         set(newKm) {
-            miles = Distance.toMiles(newKm)
+            miles = Distance.toMiles(km:newKm)
         }
     }
     init(miles:Double) {
         self.miles = miles
     }
     init(km:Double) {
-        self.miles = Distance.toMiles(km)
+        self.miles = Distance.toMiles(km:km)
     }
     static func toKm(miles:Double)->Double {
         return miles * kmPerMile
@@ -32,30 +30,38 @@ class Distance {
 }
 //: ## Distance extension
 extension Distance {
-    static let feetPerMile = 1.60934
+    static let feetPerMile:Double = 5280
     var feet:Double {
         get {
-            return Distance.toFeet(miles)
+            return Distance.toFeet(miles:miles)
         }
         set(newFeet) {
             miles = Distance.toMiles(feet: newFeet)
         }
     }
-    convenience init(feet:Double) {
-        self.init(miles:Distance.toMiles(feet:feet))
+    init(feet:Double) {
+        self.miles = Distance.toMiles(feet:feet)
     }
     func displayMiles()->String {
         return "\(Int(miles)) miles"
     }
     static func toFeet(miles:Double)->Double {
-        return miles * 5280
+        return miles * feetPerMile
     }
-    static func toMiles(feet feet:Double)->Double {
-        return feet / 5280
+    static func toMiles(feet:Double)->Double {
+        return feet / feetPerMile
+    }
+    static func toKm(feet:Double)->Double {
+        return toKm(miles:toMiles(feet:feet))
     }
 }
 
 var distance = Distance(km: 100)
-print ("\(distance.km) km in miles is \(distance.miles)")
+print ("\(distance.km) km in miles is \(distance.displayMiles())")
+
 
 distance.km = 90
+
+
+let km = Distance.toKm(miles:60)   //62.137
+let km2 = Distance.toKm(feet:100) // 00189
