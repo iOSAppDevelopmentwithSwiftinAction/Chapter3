@@ -3,101 +3,101 @@ import UIKit
 //: # Telephones using protocols
 //:
 //: ## is-as protocols
-protocol TelephoneType {
-    var phoneNo:Int { get set }
-    func makeCall()
-    func hangUp()
+protocol Telephone {
+  var phoneNo:Int { get set }
+  func makeCall()
+  func hangUp()
 }
-extension TelephoneType {
-    func makeCall() {
-        print("Make call")
-    }
-    func hangUp() {
-        print("Hang up")
-    }
+extension Telephone {
+  func makeCall() {
+    print("Make call")
+  }
+  func hangUp() {
+    print("Hang up")
+  }
 }
-protocol LandlineType:TelephoneType {
-    
+protocol Landline:Telephone {
+  
 }
-protocol CellularType:TelephoneType {
-    func sendSMS()
+protocol Cellular:Telephone {
+  func sendSMS()
 }
-extension CellularType {
-    func sendSMS() {
-        print("Send SMS")
-    }
+extension Cellular {
+  func sendSMS() {
+    print("Send SMS")
+  }
 }
 //: ## Capability protocols
 protocol Rotaryable {
-    func rotaryInput()
+  func rotaryInput()
 }
 extension Rotaryable {
-    func rotaryInput() {
-        print("Received rotary input")
-    }
+  func rotaryInput() {
+    print("Received rotary input")
+  }
 }
 protocol PushButtonable {
-    func buttonInput()
+  func buttonInput()
 }
 extension PushButtonable {
-    func buttonInput() {
-        print("Pushed some buttons")
-    }
+  func buttonInput() {
+    print("Pushed some buttons")
+  }
 }
 protocol Touchable {
-    func touchInput()
+  func touchInput()
 }
 extension Touchable {
-    func touchInput() {
-        print("Received touch input")
-    }
+  func touchInput() {
+    print("Received touch input")
+  }
 }
 protocol Internetable {
-    func accessInternet()
+  func accessInternet()
 }
 extension Internetable {
-    func accessInternet() {
-        print("Accessed internet")
-    }
+  func accessInternet() {
+    print("Accessed internet")
+  }
 }
 //: ## Classes
-class RotaryPhone:LandlineType, Rotaryable {
-    var phoneNo:Int
-    init(phoneNo:Int) {
-        self.phoneNo = phoneNo
-    }
+class RotaryPhone:Landline, Rotaryable {
+  var phoneNo:Int
+  init(phoneNo:Int) {
+    self.phoneNo = phoneNo
+  }
 }
-class PushButtonPhone:LandlineType, PushButtonable {
-    var phoneNo:Int
-    init(phoneNo:Int) {
-        self.phoneNo = phoneNo
-    }
+class PushButtonPhone:Landline, PushButtonable {
+  var phoneNo:Int
+  init(phoneNo:Int) {
+    self.phoneNo = phoneNo
+  }
 }
-class NonSmartPhone:CellularType,PushButtonable {
-    var phoneNo:Int
-    init(phoneNo:Int) {
-        self.phoneNo = phoneNo
-    }
+class NonSmartPhone:Cellular,PushButtonable {
+  var phoneNo:Int
+  init(phoneNo:Int) {
+    self.phoneNo = phoneNo
+  }
 }
-class iPhone:CellularType,Touchable,Internetable {
-    var phoneNo:Int
-    init(phoneNo:Int) {
-        self.phoneNo = phoneNo
-    }
-    //iOS implementation
+class iPhone:Cellular,Touchable,Internetable {
+  var phoneNo:Int
+  init(phoneNo:Int) {
+    self.phoneNo = phoneNo
+  }
+  //iOS implementation
 }
-class AndroidPhone:CellularType,Touchable,Internetable {
-    var phoneNo:Int
-    init(phoneNo:Int) {
-        self.phoneNo = phoneNo
-    }
-    //Android implementation
+class AndroidPhone:Cellular,Touchable,Internetable {
+  var phoneNo:Int
+  init(phoneNo:Int) {
+    self.phoneNo = phoneNo
+  }
+  //Android implementation
 }
-class WindowsPhone:CellularType,Touchable,Internetable {
-    var phoneNo:Int
-    init(phoneNo:Int) {
-        self.phoneNo = phoneNo
-    }
-    //Windows OS implementation
+class WindowsPhone:Cellular,Touchable,Internetable {
+  var phoneNo:Int
+  init(phoneNo:Int) {
+    self.phoneNo = phoneNo
+  }
+  //Windows OS implementation
 }
 
