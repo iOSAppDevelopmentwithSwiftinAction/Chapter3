@@ -33,4 +33,3 @@ var distance = Distance(km: 100)
 print ("\(distance.km) km in miles is \(distance.miles)")
 
 distance.km = 90
-
