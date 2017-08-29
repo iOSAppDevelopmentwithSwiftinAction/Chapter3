@@ -18,15 +18,15 @@ class Telephone {
     }
 }
 //: ## Landline classes
-class LandLine:Telephone {
+class Landline:Telephone {
     
 }
-class Rotary:LandLine {
+class Rotary:Landline {
     func rotaryInput() {
         print("Received rotary input")
     }
 }
-class PushButton:LandLine {
+class PushButton:Landline {
     func buttonInput() {
         print("Pushed some buttons")
     }
