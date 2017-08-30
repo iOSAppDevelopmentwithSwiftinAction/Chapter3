@@ -8,6 +8,7 @@
  - [Telephone Class Inheritance](TelephoneClassInheritance)
  - [TelephoneProtocols](TelephoneProtocols)
  - [DistanceExtensions](DistanceExtensions)
+ - [Extensions](Extensions)
  
  ****
  [Next](@next)
