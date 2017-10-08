@@ -60,6 +60,6 @@ extension Distance {
 var distance = Distance(km: 100)
 print ("\(distance.km) km in miles is \(distance.displayMiles())")
 distance.km = 90
-let km = Distance.toKm(miles:60)   //62.137
-let km2 = Distance.toKm(feet:100) // 00189
+let km = Distance.toKm(miles:60)   //96.5604
+let km2 = Distance.toKm(feet:100) // 0.03047
 //: [Table of Contents](Table%20of%20Contents) | [Previous](@previous) | [Next](@next)
